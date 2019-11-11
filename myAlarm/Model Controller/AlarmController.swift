@@ -56,6 +56,7 @@ class AlarmController: AlarmScheduler {
     func addAlarm(fireDate: Date, name: String, enabled: Bool) {
         let alarm = Alarm(fireDate: fireDate, name: name, enabled: enabled)
         self.alarms.append(alarm)
+        scheduleUserNotifications(for: alarm)
         saveToPersistentStore()
     }
     
